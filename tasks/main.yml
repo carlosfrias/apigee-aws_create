@@ -5,8 +5,8 @@
     assign_public_ip: '{{ assign_public_ip }}'
     image: "{{ image_id }}"
     instance_type: '{{ instance_type }}'
-    aws_access_key: '{{ aws_access_key }}'
-    aws_secret_key: '{{ aws_secret_key }}'
+    aws_access_key: "{{ aws_access_key|default(lookup('env', 'AWS_ACCESS_KEY_ID')) }}"
+    aws_secret_key: "{{ aws_secret_key|default(lookup('env', 'AWS_SECRET_ACCESS_KEY')) }}"
     aws_region: '{{ aws_region }}'
     key_name: '{{ key_name }}'
     wait: '{{ wait }}'
