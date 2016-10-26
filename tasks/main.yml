@@ -7,7 +7,7 @@
     instance_type: '{{ instance_type }}'
     aws_access_key: "{{ aws_access_key|default(lookup('env', 'AWS_ACCESS_KEY_ID')) }}"
     aws_secret_key: "{{ aws_secret_key|default(lookup('env', 'AWS_SECRET_ACCESS_KEY')) }}"
-    aws_region: '{{ aws_region }}'
+    aws_region: "{{ aws_region|default(lookup('env', 'AWS_REGION'))  }}"
     key_name: '{{ key_name }}'
     wait: '{{ wait }}'
     state: present
