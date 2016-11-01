@@ -27,7 +27,7 @@
       owner_contact_info: '{{ owner_contact_info }}'
       pod: '{{ pod }}'
       team_contact_info: '{{ team_contact_info }}'
-      env: '{{ name_prefix }}-{{ env }}-{{ os_selection }}'
+      env: '{{ env }}-{{ os_selection }}'
   register: status
   with_sequence: start={{ start }} end={{ end }}
 
