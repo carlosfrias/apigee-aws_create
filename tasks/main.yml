@@ -19,7 +19,7 @@
         volume_size: '{{ volume_size }}'
         delete_on_termination: '{{ delete_on_termination }}'
     instance_tags:
-      Name: '{{ session_name }}{{ dc }}-n{{ item }}'
+      Name: 'dc{{ dc }}-n{{ item }}'
       application: '{{ application }}'
       bag: '{{ bag }}'
       department: '{{ department }}'
@@ -27,7 +27,7 @@
       owner_contact_info: '{{ owner_contact_info }}'
       pod: '{{ pod }}'
       team_contact_info: '{{ team_contact_info }}'
-      env: '{{ env }}-{{ os_selection }}'
+      env: '{{ session_name }}-{{ env }}-{{ os_selection }}'
   register: status
   with_sequence: start={{ start }} end={{ end }}
 
