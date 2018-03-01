@@ -5,9 +5,9 @@
     assign_public_ip: '{{ assign_public_ip }}'
     image: "{{ image_id }}"
     instance_type: '{{ instance_type }}'
-    aws_access_key: "{{ aws_access_key|default(lookup('env', 'AWS_ACCESS_KEY_ID')) }}"
-    aws_secret_key: "{{ aws_secret_key|default(lookup('env', 'AWS_SECRET_ACCESS_KEY')) }}"
-    aws_region: "{{ aws_region|default(lookup('env', 'AWS_REGION'))  }}"
+    aws_access_key: "{{ aws_access_key | default(lookup('env', 'AWS_ACCESS_KEY_ID')) }}"
+    aws_secret_key: "{{ aws_secret_key | default(lookup('env', 'AWS_SECRET_ACCESS_KEY')) }}"
+    aws_region: "{{ aws_region | default(lookup('env', 'AWS_REGION'))  }}"
     key_name: '{{ key_name }}'
     wait: '{{ wait }}'
     state: present
@@ -18,16 +18,7 @@
         volume_type: '{{ volume_type }}'
         volume_size: '{{ volume_size }}'
         delete_on_termination: '{{ delete_on_termination }}'
-    instance_tags:
-      Name: 'dc{{ dc }}-n{{ item }}'
-      application: '{{ application }}'
-      bag: '{{ bag }}'
-      department: '{{ department }}'
-      company_env: '{{ company_env }}'
-      owner_contact_info: '{{ owner_contact_info }}'
-      pod: '{{ pod }}'
-      team_contact_info: '{{ team_contact_info }}'
-      env: '{{ env }}-{{ session_name }}-{{ os_selection }}'
+    instance_tags: "{{ instance_tags }}"
   register: status
   with_sequence: start={{ start }} end={{ end }}
 
