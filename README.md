@@ -1,7 +1,7 @@
 Apigee OPDK AWS Create
 =========
 
-A brief description of the role goes here.
+The purpose of this role is to provision AWS Ami
 
 Requirements
 ------------
