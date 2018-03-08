@@ -26,3 +26,12 @@
 - name: Provision AMI instances Report
   debug:
     var: status
+
+- name: Waiting for server to initialize
+  become: no
+  local_action:
+    module: wait_for
+    host: '{{ inventory_hostname }}'
+    state: started
+    delay: "{{ start_check_delay | d(15) }}"
+    timeout: '{{ server_restart_timeout | d(60) }}'
